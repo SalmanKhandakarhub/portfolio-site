@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Contact — Miltan</title>
+<meta name="description" content="Tell me what you're building. Backend work, AI features, or a system that keeps falling over — I reply within a day." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+<a href="#main" class="skip">Skip to content</a>
+
+<nav class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="brand">miltan<span>.dev</span></a>
+    <div class="nav__links">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="work.html">Work</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" aria-current="page">Contact</a>
+    </div>
+    <div class="status"><span class="dot"></span> Taking new work</div>
+    <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navPanel" aria-label="Open menu"><span></span><span></span></button>
+  </div>
+  <div class="nav__panel" id="navPanel">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="work.html">Work</a>
+    <a href="about.html">About</a>
+    <a href="contact.html" aria-current="page">Contact</a>
+  </div>
+</nav>
+
+<main id="main">
+
+<header class="page-head">
+  <div class="wrap">
+    <p class="eyebrow">Contact</p>
+    <h1>Tell me what you're building.</h1>
+  </div>
+</header>
+
+<section class="section--tight" style="padding-top:44px;">
+  <div class="wrap contact">
+
+    <div class="contact__aside reveal">
+      <p>Backend work, an AI feature, or an existing system that keeps falling over — send the details and I'll reply within a day with an honest read on whether I'm the right fit.</p>
+      <div class="contact__direct">
+        <!-- EDIT:EMAIL — your real address -->
+        <a href="mailto:you@example.com"><span>@</span> you@example.com</a>
+        <!-- EDIT:LINKS -->
+        <a href="https://github.com/yourhandle" target="_blank" rel="noopener"><span>↗</span> github.com/yourhandle</a>
+        <a href="https://linkedin.com/in/yourhandle" target="_blank" rel="noopener"><span>↗</span> linkedin.com/in/yourhandle</a>
+      </div>
+    </div>
+
+    <!-- EDIT:FORM — set API_URL in section 6 of assets/js/main.js -->
+    <div class="reveal">
+      <div class="field-row">
+        <div class="field">
+          <label for="name">Your name</label>
+          <input type="text" id="name" autocomplete="name" placeholder="Jane Doe" />
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" autocomplete="email" placeholder="jane@company.com" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="kind">What you need</label>
+        <select id="kind">
+          <option>Backend API or architecture</option>
+          <option>AI / LLM feature</option>
+          <option>Real-time chat or video</option>
+          <option>Fixing an existing system</option>
+          <option>Something else</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="msg">Project details</label>
+        <textarea id="msg" placeholder="What are you building, what's the timeline, and what's currently in your way?"></textarea>
+      </div>
+
+      <!-- Honeypot: hidden from people, irresistible to bots.
+           Anything typed here means the submission is automated. -->
+      <div class="hp" aria-hidden="true">
+        <label for="company">Company</label>
+        <input type="text" id="company" name="company" tabindex="-1" autocomplete="off" />
+      </div>
+
+      <button class="btn btn--solid" id="send" style="width:100%; justify-content:center;">Send message →</button>
+      <p class="form__status" id="status" role="status"></p>
+      <p class="form__note">You'll get a confirmation email straight away. Nothing is stored or shared.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="wrap">
+    <p class="eyebrow reveal">Before you write</p>
+    <h2 class="reveal" style="margin-top:20px;">Questions I get asked first.</h2>
+
+    <div class="faq">
+      <div class="faq__item reveal">
+        <button class="faq__q" aria-expanded="false">How quickly do you reply?</button>
+        <div class="faq__a"><p>Within one working day, always. If I'm not the right person for the job I'll say so in that first reply rather than leaving you waiting — and I'll point you somewhere better if I can.</p></div>
+      </div>
+      <div class="faq__item reveal">
+        <button class="faq__q" aria-expanded="false">Do you take on small fixes, or only full projects?</button>
+        <div class="faq__a"><p>Both. Some of the most useful work is a two-day investigation into why something intermittently fails. If the problem is well-defined, size isn't the deciding factor.</p></div>
+      </div>
+      <div class="faq__item reveal">
+        <button class="faq__q" aria-expanded="false">Can you work with an existing codebase?</button>
+        <div class="faq__a"><p>Yes, and most of my work is exactly that. I'll spend the first day reading before touching anything, then send you a short note on what I found — including the parts you may not want to hear.</p></div>
+      </div>
+      <div class="faq__item reveal">
+        <button class="faq__q" aria-expanded="false">How do you price work?</button>
+        <div class="faq__a"><p>Fixed price per milestone once the scope is clear, so you're never watching a meter. For open-ended investigation work I'll agree a capped number of days up front.</p></div>
+      </div>
+      <div class="faq__item reveal">
+        <button class="faq__q" aria-expanded="false">What timezone do you work in?</button>
+        <div class="faq__a"><p>India Standard Time, based in Mumbai. I keep a few hours of overlap with European mornings and US mornings, and I'm happy to schedule calls outside my usual hours when it matters.</p></div>
+      </div>
+      <div class="faq__item reveal">
+        <button class="faq__q" aria-expanded="false">Are you open to full-time roles?</button>
+        <div class="faq__a"><p>For the right team, yes. Mention it in your message and tell me what the engineering culture is actually like — not what the job description says it is.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <p>© <span class="year"></span> Miltan · Backend &amp; AI engineer</p>
+    <div class="footer__links">
+      <a href="services.html">Services</a><a href="work.html">Work</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

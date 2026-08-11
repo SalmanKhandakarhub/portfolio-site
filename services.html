@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Services — Miltan</title>
+<meta name="description" content="Backend APIs, LLM features, real-time systems, and deployment. What each engagement includes and how the work runs." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+<a href="#main" class="skip">Skip to content</a>
+
+<nav class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="brand">miltan<span>.dev</span></a>
+    <div class="nav__links">
+      <a href="index.html">Home</a>
+      <a href="services.html" aria-current="page">Services</a>
+      <a href="work.html">Work</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="status"><span class="dot"></span> Taking new work</div>
+    <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navPanel" aria-label="Open menu"><span></span><span></span></button>
+  </div>
+  <div class="nav__panel" id="navPanel">
+    <a href="index.html">Home</a>
+    <a href="services.html" aria-current="page">Services</a>
+    <a href="work.html">Work</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<main id="main">
+
+<header class="page-head">
+  <div class="wrap">
+    <p class="eyebrow">Services</p>
+    <h1>What you get, and what it actually includes.</h1>
+    <p class="lede">No packages or tiers. I take on one problem at a time and finish it — usually a backend that needs building, an AI feature that needs to be real software, or a system that stopped behaving.</p>
+  </div>
+</header>
+
+<section class="section">
+  <div class="wrap">
+
+    <!-- 1 -->
+    <article class="svc reveal">
+      <div class="svc__head">
+        <span class="card__tag">Backend</span>
+        <h3>APIs &amp; system architecture</h3>
+        <p>The foundation everything else sits on. I design around your data model and access patterns first, then write the service layer — so the API still makes sense when the feature list doubles.</p>
+      </div>
+      <ul class="svc__list">
+        <li>FastAPI services with typed request and response models</li>
+        <li>Database schema design, indexing, and safe migrations</li>
+        <li>Multi-tenant architecture and per-customer data isolation</li>
+        <li>Authentication, roles, and permission boundaries</li>
+        <li>Background jobs and scheduled tasks with retries</li>
+        <li>OpenAPI docs your frontend team can work from directly</li>
+      </ul>
+    </article>
+
+    <!-- 2 -->
+    <article class="svc reveal">
+      <div class="svc__head">
+        <span class="card__tag">AI</span>
+        <h3>LLM features that survive contact with users</h3>
+        <p>Most AI features fail because nobody measured them. I build the evaluation set alongside the feature, so you can see accuracy and cost per query before it reaches customers — and after every change.</p>
+      </div>
+      <ul class="svc__list">
+        <li>Retrieval over your own documents, with citations to the source</li>
+        <li>Structured extraction from messy text, validated before it's stored</li>
+        <li>Agents and tool-calling with human confirmation on risky actions</li>
+        <li>Evaluation sets that catch regressions when a prompt changes</li>
+        <li>Cost and latency controls: caching, model routing, streaming</li>
+        <li>Guardrails against prompt injection and leaked personal data</li>
+      </ul>
+    </article>
+
+    <!-- 3 -->
+    <article class="svc reveal">
+      <div class="svc__head">
+        <span class="card__tag">Real-time</span>
+        <h3>Chat, presence &amp; video</h3>
+        <p>Real-time is where most backends quietly break — the demo works on one worker and fails at scale. I build delivery that doesn't care which process a user landed on.</p>
+      </div>
+      <ul class="svc__list">
+        <li>WebSocket chat with read receipts and typing state</li>
+        <li>Redis pub/sub delivery across every worker and server</li>
+        <li>Reconnection handling and message ordering</li>
+        <li>Self-hosted video meetings on your own domain</li>
+        <li>File sharing and upload handling inside conversations</li>
+        <li>Notification fan-out to email, SMS, or push</li>
+      </ul>
+    </article>
+
+    <!-- 4 -->
+    <article class="svc reveal">
+      <div class="svc__head">
+        <span class="card__tag">Operations</span>
+        <h3>Deployment &amp; keeping it up</h3>
+        <p>Shipping is the start, not the end. I set up the boring infrastructure that means an incident takes twenty minutes to diagnose instead of a whole afternoon.</p>
+      </div>
+      <ul class="svc__list">
+        <li>AWS setup: EC2, RDS, load balancers, certificates, DNS</li>
+        <li>nginx reverse proxy, SSL, and WebSocket configuration</li>
+        <li>systemd services so processes restart themselves</li>
+        <li>Secrets in AWS Secrets Manager instead of a .env file</li>
+        <li>Structured logging and error tracking with real context</li>
+        <li>Handover documentation your team can follow without me</li>
+      </ul>
+    </article>
+
+  </div>
+</section>
+
+<!-- PROCESS — numbered because it is a genuine sequence -->
+<section class="section section--edge">
+  <div class="wrap">
+    <p class="eyebrow reveal">How the work runs</p>
+    <h2 class="reveal" style="margin-top:20px; max-width:16ch;">Four steps, every time.</h2>
+
+    <div class="steps">
+      <div class="step reveal">
+        <h4>Understand the problem</h4>
+        <p>A call and a look at what exists. I want the constraint you're actually stuck on, not just the feature request.</p>
+      </div>
+      <div class="step reveal">
+        <h4>Scope and quote</h4>
+        <p>A written plan with milestones and a fixed price. If I think the work isn't worth doing, I say so here.</p>
+      </div>
+      <div class="step reveal">
+        <h4>Build in the open</h4>
+        <p>Small pull requests you can review as they land, with a working deployment from the first week — never a big reveal at the end.</p>
+      </div>
+      <div class="step reveal">
+        <h4>Hand over properly</h4>
+        <p>Documentation, runbooks, and a walkthrough. You should be able to operate it without calling me — and call me anyway if you want to.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <p class="eyebrow reveal">Next step</p>
+    <h2 class="reveal">Describe the problem, not the solution.</h2>
+    <p class="lede reveal">The most useful first message tells me what's breaking or what you're trying to launch. I'll tell you what I'd do about it.</p>
+    <div class="cta-row reveal"><a href="contact.html" class="btn btn--solid">Get in touch →</a></div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <p>© <span class="year"></span> Miltan · Backend &amp; AI engineer</p>
+    <div class="footer__links">
+      <a href="services.html">Services</a><a href="work.html">Work</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

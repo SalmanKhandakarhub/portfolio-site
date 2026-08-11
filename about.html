@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>About — Miltan</title>
+<meta name="description" content="Backend engineer with three years of Python in production, now building AI features with the same discipline. Tools, principles, and background." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+<a href="#main" class="skip">Skip to content</a>
+
+<nav class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="brand">miltan<span>.dev</span></a>
+    <div class="nav__links">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="work.html">Work</a>
+      <a href="about.html" aria-current="page">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="status"><span class="dot"></span> Taking new work</div>
+    <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navPanel" aria-label="Open menu"><span></span><span></span></button>
+  </div>
+  <div class="nav__panel" id="navPanel">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="work.html">Work</a>
+    <a href="about.html" aria-current="page">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<main id="main">
+
+<header class="page-head">
+  <div class="wrap">
+    <p class="eyebrow">About</p>
+    <h1>Hi, I'm Miltan.</h1>
+    <p class="lede">A backend engineer in Mumbai who likes systems that stay boring under load — and is spending this year making AI features behave like real software.</p>
+  </div>
+</header>
+
+<section class="section">
+  <div class="wrap about">
+    <div class="reveal">
+      <p>I have <strong>three years of Python in production</strong>, most of it on multi-tenant SaaS — the kind of system where one bad database session or one missing firewall rule takes down a customer's entire day.</p>
+      <p>That's shaped how I work. I like <strong>reading logs until the actual cause turns up</strong> rather than guessing and redeploying. A lot of my best fixes have been one line long and taken two days to find, and I've made peace with that trade.</p>
+      <p>I'd rather ship a boring, well-instrumented service than a clever one nobody can debug at 2am. Clever code is a loan against your future self.</p>
+      <p>Right now I'm putting the same discipline into AI engineering — retrieval, agents, and evaluation — so LLM features arrive as <strong>measurable software</strong> instead of a demo that worked once on a good day.</p>
+    </div>
+
+    <div class="now reveal">
+      <h4>Currently</h4>
+      <ul>
+        <li>Running a multi-tenant FastAPI platform on AWS, end to end</li>
+        <li>Building retrieval and agent systems with measured evaluation sets</li>
+        <li>Working through transformers and QLoRA fine-tuning from the ground up</li>
+        <li>Reading more infrastructure post-mortems than is strictly healthy</li>
+        <li>Open to freelance backend and AI engineering work</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PRINCIPLES -->
+<section class="section section--edge">
+  <div class="wrap">
+    <p class="eyebrow reveal">How I work</p>
+    <h2 class="reveal" style="margin-top:20px; max-width:16ch;">Four things I've learned the hard way.</h2>
+
+    <div class="grid-2">
+      <article class="card reveal">
+        <span class="card__tag">Debugging</span>
+        <h3>Find the cause, not a workaround</h3>
+        <p>Restarting the service fixes today. Reading the logs until you understand why it broke fixes the next six months. I'd rather spend the extra day.</p>
+      </article>
+      <article class="card reveal">
+        <span class="card__tag">State</span>
+        <h3>Assume more than one process</h3>
+        <p>Anything held in memory belongs to one worker only. Caches, connections, counters — if it needs to be shared, it goes in Redis or the database, not a variable.</p>
+      </article>
+      <article class="card reveal">
+        <span class="card__tag">Measurement</span>
+        <h3>A number beats an adjective</h3>
+        <p>"Improved the search" means nothing. "Retrieval accuracy went from 61% to 84% on a 30-question set" is something you can act on and I can defend.</p>
+      </article>
+      <article class="card reveal">
+        <span class="card__tag">Handover</span>
+        <h3>Write it down while it's fresh</h3>
+        <p>Every fix gets a note explaining what broke and why. Documentation written a month later is fiction — you've already forgotten the part that mattered.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE — dated, so order carries real information -->
+<section class="section section--edge">
+  <div class="wrap">
+    <p class="eyebrow reveal">Background</p>
+    <h2 class="reveal" style="margin-top:20px;">How I got here.</h2>
+
+    <!-- EDIT: replace these with your real dates and roles -->
+    <div class="tl">
+      <div class="tl__item reveal">
+        <span class="tl__when">2026 — now</span>
+        <h3>AI engineering</h3>
+        <p>Building retrieval systems, structured extraction, and tool-using agents on top of the same FastAPI foundations — with evaluation sets and cost tracking treated as part of the feature, not an afterthought.</p>
+      </div>
+      <div class="tl__item reveal">
+        <span class="tl__when">2024 — 2026</span>
+        <h3>Backend engineer · multi-tenant SaaS</h3>
+        <p>Owned the API, background jobs, real-time layer, and deployment for a platform serving isolated customers on their own subdomains and databases. Moved it from a single box to a properly monitored AWS setup.</p>
+      </div>
+      <div class="tl__item reveal">
+        <span class="tl__when">2023 — 2024</span>
+        <h3>Python developer</h3>
+        <p>API development, database design, and integrations. Learned most of what I know about error handling by being on the receiving end of my own poor error handling.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STACK -->
+<section class="section section--edge">
+  <div class="wrap">
+    <p class="eyebrow reveal">Stack</p>
+    <h2 class="reveal" style="margin-top:20px;">Tools I reach for.</h2>
+
+    <div class="stack-grid">
+      <div class="stack-col reveal">
+        <h4>Language &amp; API</h4>
+        <ul><li>Python 3.12</li><li>FastAPI</li><li>SQLAlchemy 2.0</li><li>Pydantic v2</li><li>Celery + Beat</li><li>Poetry</li><li>pytest</li></ul>
+      </div>
+      <div class="stack-col reveal">
+        <h4>Data</h4>
+        <ul><li>PostgreSQL</li><li>Redis</li><li>pgvector</li><li>Alembic</li><li>Amazon RDS</li></ul>
+      </div>
+      <div class="stack-col reveal">
+        <h4>AI</h4>
+        <ul><li>Claude &amp; OpenAI APIs</li><li>Embeddings + RAG</li><li>Tool / function calling</li><li>Evaluation suites</li><li>Ollama (local models)</li><li>Hugging Face</li></ul>
+      </div>
+      <div class="stack-col reveal">
+        <h4>Infrastructure</h4>
+        <ul><li>AWS EC2, ALB, ACM</li><li>Secrets Manager, IAM</li><li>nginx</li><li>systemd</li><li>Docker Compose</li><li>Git &amp; GitHub Actions</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <p class="eyebrow reveal">Say hello</p>
+    <h2 class="reveal">Easiest way to find out if we'd work well together.</h2>
+    <p class="lede reveal">Send a short message about what you're building. No form-filling ritual required.</p>
+    <div class="cta-row reveal"><a href="contact.html" class="btn btn--solid">Get in touch →</a></div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <p>© <span class="year"></span> Miltan · Backend &amp; AI engineer</p>
+    <div class="footer__links">
+      <a href="services.html">Services</a><a href="work.html">Work</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
