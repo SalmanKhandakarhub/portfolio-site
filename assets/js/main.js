@@ -1,5 +1,5 @@
 /* ============================================================
-   Miltan — portfolio scripts
+   Salman — portfolio scripts
    Loaded by every page. Every section guards against missing
    elements, so one file safely serves all five pages.
 
@@ -16,11 +16,11 @@ const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
    ============================================================ */
 const nav = document.getElementById('nav');
 if (nav) {
-  addEventListener('scroll', () => nav.classList.toggle('is-stuck', scrollY > 20), { passive:true });
+  addEventListener('scroll', () => nav.classList.toggle('is-stuck', scrollY > 20), { passive: true });
 }
 
 const toggle = document.getElementById('navToggle');
-const panel  = document.getElementById('navPanel');
+const panel = document.getElementById('navPanel');
 if (toggle && panel) {
   toggle.addEventListener('click', () => {
     const open = panel.classList.toggle('is-open');
@@ -43,7 +43,7 @@ const io = new IntersectionObserver((entries) => {
       io.unobserve(e.target);
     }
   });
-}, { threshold:0.12, rootMargin:'0px 0px -60px 0px' });
+}, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
 /* ============================================================
@@ -51,13 +51,13 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
    ============================================================ */
 const traceEl = document.getElementById('trace');
 if (traceEl) {
-  const rows    = [...traceEl.querySelectorAll('.row')];
+  const rows = [...traceEl.querySelectorAll('.row')];
   const totalEl = document.getElementById('traceTotal');
-  const textEl  = document.getElementById('traceText');
+  const textEl = document.getElementById('traceText');
 
   const timings = [4, 6, 3, 41, 2, 210, 18];   /* per-stage latency, ms */
-  const peak    = Math.max(...timings);
-  let pinned    = false;
+  const peak = Math.max(...timings);
+  let pinned = false;
 
   const paint = (i, ms) => {
     const r = rows[i];
@@ -93,7 +93,7 @@ if (traceEl) {
   } else {
     const tio = new IntersectionObserver(e => {
       if (e[0].isIntersecting) { run(); tio.disconnect(); }
-    }, { threshold:0.3 });
+    }, { threshold: 0.3 });
     tio.observe(traceEl);
   }
 
@@ -118,8 +118,9 @@ if (traceEl) {
 /* marquee — duplicated so the loop has no seam */
 const strip = document.getElementById('strip');
 if (strip) {
-  const items = ['FastAPI','PostgreSQL','Redis','Celery','AWS EC2','Docker','nginx','SQLAlchemy',
-                 'Pydantic','WebSockets','RAG','pgvector','Claude API','systemd','Poetry'];
+  const items = ['FastAPI', 'Django', 'Flask', 'Python', 'Golang', 'AWS Cloud', 'PostgreSQL', 'Redis', 'Celery', 'AWS EC2', 'Docker', 'nginx', 'SQLAlchemy',
+    'Pydantic', 'WebSockets', 'RAG', 'pgvector', 'Claude API', 'systemd', 'Poetry', 'MongoDB', 'Jitsi', 'AWS S3', 'AWS Lambda', 'Redis pub/sub',
+    'Scikit-learn', 'TensorFlow', 'PyTorch', 'NumPy', 'Pandas', 'Matplotlib', 'TensorFlow', 'PyTorch'];
   strip.innerHTML = [...items, ...items].map(t => `<span>${t}</span>`).join('');
 }
 
@@ -171,7 +172,7 @@ if (send) {
   const API_URL = '/api/contact';
 
   const statusEl = document.getElementById('status');
-  const fields   = ['name', 'email', 'kind', 'msg'].map(id => document.getElementById(id));
+  const fields = ['name', 'email', 'kind', 'msg'].map(id => document.getElementById(id));
   const honeypot = document.getElementById('company');
   const original = send.textContent;
 
@@ -182,9 +183,9 @@ if (send) {
 
   const submit = async () => {
     const [nameEl, emailEl, kindEl, msgEl] = fields;
-    const name  = nameEl.value.trim();
+    const name = nameEl.value.trim();
     const email = emailEl.value.trim();
-    const msg   = msgEl.value.trim();
+    const msg = msgEl.value.trim();
 
     /* client-side checks are for fast feedback only —
        the server validates everything again, because this can be bypassed */
@@ -259,8 +260,8 @@ if (send) {
 if (matchMedia('(hover:hover) and (pointer:fine)').matches && !reduced) {
 
   /* 7a. crosshair cursor */
-  const ring = Object.assign(document.createElement('div'), { className:'cur-ring' });
-  const dot  = Object.assign(document.createElement('div'), { className:'cur-dot'  });
+  const ring = Object.assign(document.createElement('div'), { className: 'cur-ring' });
+  const dot = Object.assign(document.createElement('div'), { className: 'cur-dot' });
   document.body.append(ring, dot);
   document.body.classList.add('cursor-on');
 
@@ -270,21 +271,21 @@ if (matchMedia('(hover:hover) and (pointer:fine)').matches && !reduced) {
   addEventListener('mousemove', (e) => {
     mx = e.clientX; my = e.clientY;
     dot.style.transform = `translate3d(${mx}px, ${my}px, 0)`;
-  }, { passive:true });
+  }, { passive: true });
 
-  (function follow(){
+  (function follow() {
     rx += (mx - rx) * 0.16;
     ry += (my - ry) * 0.16;
     ring.style.transform = `translate3d(${rx}px, ${ry}px, 0)`;
     requestAnimationFrame(follow);
   })();
 
-  const HOT  = 'a, button, .row, .card, .proj, .chip';
+  const HOT = 'a, button, .row, .card, .proj, .chip';
   const TEXT = 'input, textarea, select';
   addEventListener('mouseover', (e) => {
-    document.body.classList.toggle('cur-hot',  !!e.target.closest(HOT));
+    document.body.classList.toggle('cur-hot', !!e.target.closest(HOT));
     document.body.classList.toggle('cur-text', !!e.target.closest(TEXT));
-  }, { passive:true });
+  }, { passive: true });
 
   addEventListener('mouseleave', () => document.body.classList.remove('cursor-on'));
   addEventListener('mouseenter', () => document.body.classList.add('cursor-on'));
@@ -294,8 +295,8 @@ if (matchMedia('(hover:hover) and (pointer:fine)').matches && !reduced) {
     el.addEventListener('mousemove', (e) => {
       const r = el.getBoundingClientRect();
       el.style.setProperty('--mx', (e.clientX - r.left) + 'px');
-      el.style.setProperty('--my', (e.clientY - r.top)  + 'px');
-    }, { passive:true });
+      el.style.setProperty('--my', (e.clientY - r.top) + 'px');
+    }, { passive: true });
   });
 
   /* 7c. magnetic buttons */
@@ -303,11 +304,11 @@ if (matchMedia('(hover:hover) and (pointer:fine)').matches && !reduced) {
     const PULL = 6;
     btn.addEventListener('mousemove', (e) => {
       const r = btn.getBoundingClientRect();
-      const dx = e.clientX - (r.left + r.width  / 2);
-      const dy = e.clientY - (r.top  + r.height / 2);
+      const dx = e.clientX - (r.left + r.width / 2);
+      const dy = e.clientY - (r.top + r.height / 2);
       btn.style.transform =
         `translate(${(dx / r.width) * PULL * 2}px, ${(dy / r.height) * PULL * 2 - 2}px)`;
-    }, { passive:true });
+    }, { passive: true });
     btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
   });
 }

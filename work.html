@@ -1,170 +1,440 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Work — Miltan</title>
-<meta name="description" content="Multi-tenant SaaS, real-time chat and video, document intelligence, and infrastructure work — with the numbers behind each." />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="assets/css/style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Work — Salman</title>
+  <meta name="description"
+    content="Multi-tenant SaaS, real-time chat and video, document intelligence, and infrastructure work — with the numbers behind each." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
+
 <body>
 
-<a href="#main" class="skip">Skip to content</a>
+  <a href="#main" class="skip">Skip to content</a>
 
-<nav class="nav" id="nav">
-  <div class="nav__inner">
-    <a href="index.html" class="brand">miltan<span>.dev</span></a>
-    <div class="nav__links">
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="brand">Salman<span>.dev</span></a>
+      <div class="nav__links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="work.html" aria-current="page">Work</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="status"><span class="dot"></span> Taking new work</div>
+      <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navPanel"
+        aria-label="Open menu"><span></span><span></span></button>
+    </div>
+    <div class="nav__panel" id="navPanel">
       <a href="index.html">Home</a>
       <a href="services.html">Services</a>
       <a href="work.html" aria-current="page">Work</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </div>
-    <div class="status"><span class="dot"></span> Taking new work</div>
-    <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navPanel" aria-label="Open menu"><span></span><span></span></button>
-  </div>
-  <div class="nav__panel" id="navPanel">
-    <a href="index.html">Home</a>
-    <a href="services.html">Services</a>
-    <a href="work.html" aria-current="page">Work</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-  </div>
-</nav>
+  </nav>
 
-<main id="main">
+  <main id="main">
 
-<header class="page-head">
-  <div class="wrap">
-    <p class="eyebrow">Work</p>
-    <h1>Things I built, and what changed because of it.</h1>
-    <p class="lede">Each entry says what the problem was, what I did, and the measurable result. Where a project is still running, the numbers are from production.</p>
+    <header class="page-head">
+      <div class="wrap">
+        <p class="eyebrow">Work</p>
+        <h1>Things I built, and what changed because of it.</h1>
+        <p class="lede">Each entry says what the problem was, what I did, and the measurable result. Where a project is
+          still running, the numbers are from production.</p>
 
-    <div class="filters">
-      <button class="filter is-on" data-filter="all">All</button>
-      <button class="filter" data-filter="backend">Backend</button>
-      <button class="filter" data-filter="ai">AI</button>
-      <button class="filter" data-filter="realtime">Real-time</button>
-      <button class="filter" data-filter="infra">Infrastructure</button>
-    </div>
-  </div>
-</header>
+        <div class="filters">
+          <button class="filter is-on" data-filter="all">All</button>
+          <button class="filter" data-filter="backend">Backend</button>
+          <button class="filter" data-filter="ai">AI</button>
+          <button class="filter" data-filter="realtime">Real-time</button>
+          <button class="filter" data-filter="infra">Infrastructure</button>
+        </div>
+      </div>
+    </header>
 
-<!-- EDIT:WORK — replace these with your own. Keep the numbers;
+    <!-- EDIT:WORK — replace these with your own. Keep the numbers;
      they are the most persuasive part of any engineering portfolio.
      data-cat drives the filter buttons above. -->
-<section class="section--tight">
-  <div class="wrap">
-    <div class="work">
+    <section class="section--tight">
+      <div class="wrap">
+        <div class="work">
 
-      <article class="proj reveal" data-cat="backend infra">
-        <span class="proj__idx">01</span>
-        <div>
-          <h3>Multi-tenant SaaS platform</h3>
-          <p><strong>The problem.</strong> One product, many customers, and a hard requirement that no customer's data could ever appear in another's account.</p>
-          <p><strong>What I built.</strong> A single FastAPI codebase serving isolated customers on their own subdomains, each backed by a separate database. Tenant resolution runs in middleware and caches the host-to-database mapping in Redis, so routing costs almost nothing per request. Subscription state is enforced at the same layer, before any route runs.</p>
-          <div class="proj__meta">
-            <span class="chip">Per-tenant DB routing</span>
-            <span class="chip">20 scheduled jobs</span>
-            <span class="chip">4 workers</span>
-            <span class="chip">Redis-cached lookups</span>
-          </div>
+          <article class="proj reveal" data-cat="backend ai aws">
+            <span class="proj__idx">01</span>
+            <div>
+              <h3>AI-Powered Healthcare Platform</h3>
+          
+              <p>
+                <strong>The problem.</strong>
+                Healthcare teams need to work with large volumes of medical records,
+                clinical documents, compliance workflows, and surgical coordination data,
+                while maintaining strict security and access controls.
+              </p>
+          
+              <p>
+                <strong>What I built.</strong>
+                Engineered a multi-agent AI healthcare platform using FastAPI,
+                PostgreSQL, Redis, AWS, Pinecone, and LLMs to automate medical-record
+                retrieval, knowledge management, and surgical coordination. Implemented
+                RBAC, audit logging, workflow orchestration, and AI-powered automation
+                for secure clinical workflows.
+              </p>
+          
+              <div class="proj__meta">
+                <span class="chip">Multi-agent AI</span>
+                <span class="chip">HIPAA-compliant</span>
+                <span class="chip">RBAC</span>
+                <span class="chip">Audit logging</span>
+                <span class="chip">LLM integration</span>
+                <span class="chip">Vector search</span>
+              </div>
+            </div>
+          
+            <span class="proj__stack">
+              FastAPI · PostgreSQL<br>
+              Redis · AWS · Pinecone<br>
+              LLMs · Python
+            </span>
+          </article>
+
+          <article class="proj reveal" data-cat="backend saas infra">
+            <span class="proj__idx">02</span>
+            <div>
+              <h3>Multi-Tenant SaaS Platform</h3>
+          
+              <p>
+                <strong>The problem.</strong>
+                Multiple construction enterprises needed to use the same platform
+                while keeping their data completely isolated from other tenants.
+              </p>
+          
+              <p>
+                <strong>What I built.</strong>
+                Architected and shipped a multi-tenant SaaS platform with FastAPI,
+                PostgreSQL, Redis, Celery, and Docker. Built modules covering HRMS,
+                payroll automation, geofencing-based workforce tracking, Live chating with video calling system for internal users and
+                course management, while standardising tenant provisioning for
+                faster client onboarding.
+              </p>
+          
+              <p>
+                <strong>Architecture.</strong>
+                Designed schema-per-tenant PostgreSQL isolation so multiple tenants
+                could run concurrently on the same database cluster without
+                cross-tenant data leakage.
+              </p>
+          
+              <div class="proj__meta">
+                <span class="chip">Multi-tenancy</span>
+                <span class="chip">Schema isolation</span>
+                <span class="chip">Tenant provisioning</span>
+                <span class="chip">Background jobs</span>
+                <span class="chip">Geofencing</span>
+                <span class="chip">Project management</span>
+                <span class="chip">HRMS</span>
+                <span class="chip">Accounts and Audit</span>
+                <span class="chip">Assets Maintanance</span>
+              </div>
+            </div>
+          
+            <span class="proj__stack">
+              FastAPI · PostgreSQL<br>
+              Redis · Jitsi · Celery · Docker
+            </span>
+          </article>
+
+          <article class="proj reveal" data-cat="backend trading">
+            <span class="proj__idx">03</span>
+            <div>
+              <h3>Real-Time Trading API Platform</h3>
+          
+              <p>
+                <strong>The problem.</strong>
+                Trading applications require reliable APIs for consuming market data
+                and managing orders with minimal latency.
+              </p>
+          
+              <p>
+                <strong>What I built.</strong>
+                Developed RESTful APIs using Django REST Framework and integrated
+                Zerodha Kite Connect for real-time stock-data ingestion and order
+                management. Designed the backend around low-latency API communication
+                and external trading-service integration.
+              </p>
+          
+              <div class="proj__meta">
+                <span class="chip">Real-time data</span>
+                <span class="chip">Make Historical Data</span>
+                <span class="chip">Strategy Analysis</span>
+                <span class="chip">Risk and Execution Management</span>
+                <span class="chip">Order management</span>
+                <span class="chip">REST APIs</span>
+                <span class="chip">External API integration</span>
+              </div>
+            </div>
+          
+            <span class="proj__stack">
+              Django · DRF<br>
+              Python · Zerodha Kite API
+            </span>
+          </article>
+
+          <article class="proj reveal" data-cat="realtime backend">
+            <span class="proj__idx">02</span>
+            <div>
+              <h3>Real-time chat across multiple workers</h3>
+              <p><strong>The problem.</strong> Messages were arriving only some of the time. The connection manager kept
+                its client list in memory, so delivery only worked when sender and recipient happened to land on the
+                same worker — roughly one time in four.</p>
+              <p><strong>What I built.</strong> Moved every delivery path onto Redis pub/sub channels keyed by tenant
+                and user, so any worker can reach any connected client. Along the way I found the disconnect logging was
+                swallowing its own exceptions and fixed that too.</p>
+              <div class="proj__meta">
+                <span class="chip">1-in-4 → 100% delivery</span>
+                <span class="chip">Read receipts</span>
+                <span class="chip">Reconnect handling</span>
+              </div>
+            </div>
+            <span class="proj__stack">WebSockets · Redis pub/sub<br>FastAPI · Uvicorn</span>
+          </article>
+
+          <article class="proj reveal" data-cat="realtime infra">
+            <span class="proj__idx">03</span>
+            <div>
+              <h3>Self-hosted video meetings</h3>
+              <p><strong>The problem.</strong> Video calls dropped after a few seconds, and a hosted provider would have
+                added a per-minute bill to every customer conversation.</p>
+              <p><strong>What I built.</strong> A self-hosted Jitsi stack behind a custom domain with SSL, nginx
+                WebSocket proxying, and long-lived connection timeouts. The dropped calls turned out to be a missing UDP
+                rule on the media port — one firewall line, found by reading the media server's own logs rather than
+                guessing.</p>
+              <div class="proj__meta">
+                <span class="chip">Zero vendor minutes</span>
+                <span class="chip">Custom domain + SSL</span>
+                <span class="chip">Stable long calls</span>
+              </div>
+            </div>
+            <span class="proj__stack">Jitsi · Docker Compose<br>nginx · AWS ALB &amp; ACM</span>
+          </article>
+
+          <article class="proj reveal" data-cat="ai backend">
+            <span class="proj__idx">04</span>
+            <div>
+              <h3>Document intelligence assistant</h3>
+              <p><strong>The problem.</strong> Answers about a private document set had to be trustworthy — a confident
+                wrong answer is worse than no answer at all.</p>
+              <p><strong>What I built.</strong> A retrieval pipeline that chunks by document structure, stores
+                embeddings in Postgres, and returns answers with citations pointing back to the source page. A labelled
+                evaluation set of question-and-answer pairs measures retrieval accuracy before and after every change to
+                chunking or reranking.</p>
+              <div class="proj__meta">
+                <span class="chip chip--wip">In progress</span>
+                <span class="chip">Cited answers</span>
+                <span class="chip">Eval-driven</span>
+              </div>
+            </div>
+            <span class="proj__stack">RAG · pgvector<br>FastAPI · Claude API</span>
+          </article>
+
+          <article class="proj reveal" data-cat="backend distributed go">
+            <span class="proj__idx">08</span>
+            <div>
+              <h3>Multi-Tenant Microservices Platform</h3>
+          
+              <p>
+                <strong>The problem.</strong>
+                A growing SaaS system needs independently deployable services,
+                reliable asynchronous communication, caching, and strict tenant
+                isolation without creating tightly coupled components.
+              </p>
+          
+              <p>
+                <strong>What I built.</strong>
+                Designed and built a production-grade multi-tenant SaaS platform
+                from scratch using microservices. Developed high-throughput REST
+                services in Go, introduced Redis for distributed caching and
+                cross-service rate limiting, and integrated Kafka for asynchronous
+                communication between services.
+              </p>
+          
+              <p>
+                <strong>Architecture.</strong>
+                Implemented tenant provisioning, notification dispatch, and audit
+                logging through event-driven workflows and managed database schema
+                migrations using Atlas with CI/CD compatibility.
+              </p>
+          
+              <div class="proj__meta">
+                <span class="chip">Microservices</span>
+                <span class="chip">Go / Gin</span>
+                <span class="chip">Apache Kafka</span>
+                <span class="chip">Redis</span>
+                <span class="chip">Event-driven</span>
+                <span class="chip">Atlas migrations</span>
+              </div>
+            </div>
+          
+            <span class="proj__stack">
+              Go · Gin · Kafka<br>
+              Redis · PostgreSQL · Atlas
+            </span>
+          </article>
+
+          <article class="proj reveal" data-cat="infra backend">
+            <span class="proj__idx">05</span>
+            <div>
+              <h3>Production hardening and secrets</h3>
+              <p><strong>The problem.</strong> Database credentials lived in a file on the server, and services didn't
+                come back cleanly after a restart.</p>
+              <p><strong>What I built.</strong> Credentials moved into AWS Secrets Manager and are injected at startup
+                through an IAM role attached to the instance — nothing sensitive on disk. The API, worker, and scheduler
+                now run as grouped systemd services that start, stop, and restart together.</p>
+              <div class="proj__meta">
+                <span class="chip">No credentials on disk</span>
+                <span class="chip">Least-privilege IAM</span>
+                <span class="chip">Restart-safe services</span>
+              </div>
+            </div>
+            <span class="proj__stack">AWS Secrets Manager<br>IAM · systemd · Poetry</span>
+          </article>
+
+          <article class="proj reveal" data-cat="backend automation">
+            <span class="proj__idx">05</span>
+            <div>
+              <h3>Automated PDF Reporting Pipeline</h3>
+          
+              <p>
+                <strong>The problem.</strong>
+                Report generation was dependent on manual processing and could take
+                hours to complete.
+              </p>
+          
+              <p>
+                <strong>What I built.</strong>
+                Engineered an automated PDF extraction and dynamic reporting pipeline
+                using PDFMiner, PyPDF2, and Jinja2. The system extracted information
+                from documents and generated dynamic reports automatically, reducing
+                report turnaround from hours to seconds.
+              </p>
+          
+              <div class="proj__meta">
+                <span class="chip">PDF extraction</span>
+                <span class="chip">Report automation</span>
+                <span class="chip">Dynamic templates</span>
+                <span class="chip">Document processing</span>
+              </div>
+            </div>
+          
+            <span class="proj__stack">
+              Python · PDFMiner<br>
+              PyPDF2 · Jinja2
+            </span>
+          </article>
+
+          <article class="proj reveal" data-cat="ai computer-vision">
+            <span class="proj__idx">06</span>
+            <div>
+              <h3>EyeNav — Hands-Free Cursor Control</h3>
+          
+              <p>
+                <strong>The problem.</strong>
+                Traditional mouse-based interaction can create accessibility barriers
+                for users who need hands-free computer control.
+              </p>
+          
+              <p>
+                <strong>What I built.</strong>
+                Developed EyeNav, an accessibility-focused cursor-control system using
+                computer vision and facial/landmark tracking to provide hands-free
+                interaction with a computer.
+              </p>
+          
+              <div class="proj__meta">
+                <span class="chip">Computer vision</span>
+                <span class="chip">Accessibility</span>
+                <span class="chip">Hands-free control</span>
+                <span class="chip">Landmark tracking</span>
+              </div>
+            </div>
+          
+            <span class="proj__stack">
+              Python · OpenCV<br>
+              MediaPipe
+            </span>
+          </article>
+
+          <article class="proj reveal" data-cat="data automation">
+            <span class="proj__idx">07</span>
+            <div>
+              <h3>Large-Scale Web Data Pipeline</h3>
+          
+              <p>
+                <strong>The problem.</strong>
+                Collecting structured information from large numbers of web pages
+                manually is slow and difficult to maintain.
+              </p>
+          
+              <p>
+                <strong>What I built.</strong>
+                Developed large-scale BeautifulSoup-based web-scraping pipelines
+                to collect and transform web data for downstream analysis and
+                data-processing workflows.
+              </p>
+          
+              <div class="proj__meta">
+                <span class="chip">Web scraping</span>
+                <span class="chip">Data extraction</span>
+                <span class="chip">Automation</span>
+                <span class="chip">Data pipelines</span>
+              </div>
+            </div>
+          
+            <span class="proj__stack">
+              Python · BeautifulSoup<br>
+              Data Processing
+            </span>
+          </article>
+
         </div>
-        <span class="proj__stack">FastAPI · PostgreSQL<br>SQLAlchemy · Celery<br>Redis · AWS EC2 &amp; RDS</span>
-      </article>
 
-      <article class="proj reveal" data-cat="realtime backend">
-        <span class="proj__idx">02</span>
-        <div>
-          <h3>Real-time chat across multiple workers</h3>
-          <p><strong>The problem.</strong> Messages were arriving only some of the time. The connection manager kept its client list in memory, so delivery only worked when sender and recipient happened to land on the same worker — roughly one time in four.</p>
-          <p><strong>What I built.</strong> Moved every delivery path onto Redis pub/sub channels keyed by tenant and user, so any worker can reach any connected client. Along the way I found the disconnect logging was swallowing its own exceptions and fixed that too.</p>
-          <div class="proj__meta">
-            <span class="chip">1-in-4 → 100% delivery</span>
-            <span class="chip">Read receipts</span>
-            <span class="chip">Reconnect handling</span>
-          </div>
-        </div>
-        <span class="proj__stack">WebSockets · Redis pub/sub<br>FastAPI · Uvicorn</span>
-      </article>
+        <p id="workEmpty" hidden
+          style="font-family:var(--mono); font-size:.85rem; color:var(--muted); padding:44px 12px;">
+          No projects in that category yet. Try another filter.
+        </p>
+      </div>
+    </section>
 
-      <article class="proj reveal" data-cat="realtime infra">
-        <span class="proj__idx">03</span>
-        <div>
-          <h3>Self-hosted video meetings</h3>
-          <p><strong>The problem.</strong> Video calls dropped after a few seconds, and a hosted provider would have added a per-minute bill to every customer conversation.</p>
-          <p><strong>What I built.</strong> A self-hosted Jitsi stack behind a custom domain with SSL, nginx WebSocket proxying, and long-lived connection timeouts. The dropped calls turned out to be a missing UDP rule on the media port — one firewall line, found by reading the media server's own logs rather than guessing.</p>
-          <div class="proj__meta">
-            <span class="chip">Zero vendor minutes</span>
-            <span class="chip">Custom domain + SSL</span>
-            <span class="chip">Stable long calls</span>
-          </div>
-        </div>
-        <span class="proj__stack">Jitsi · Docker Compose<br>nginx · AWS ALB &amp; ACM</span>
-      </article>
+    <section class="band">
+      <div class="wrap">
+        <p class="eyebrow reveal">Your project next</p>
+        <h2 class="reveal">What would you want on this page?</h2>
+        <p class="lede reveal">Tell me the outcome you're after and I'll tell you what it takes to get there.</p>
+        <div class="cta-row reveal"><a href="contact.html" class="btn btn--solid">Start a project →</a></div>
+      </div>
+    </section>
 
-      <article class="proj reveal" data-cat="ai backend">
-        <span class="proj__idx">04</span>
-        <div>
-          <h3>Document intelligence assistant</h3>
-          <p><strong>The problem.</strong> Answers about a private document set had to be trustworthy — a confident wrong answer is worse than no answer at all.</p>
-          <p><strong>What I built.</strong> A retrieval pipeline that chunks by document structure, stores embeddings in Postgres, and returns answers with citations pointing back to the source page. A labelled evaluation set of question-and-answer pairs measures retrieval accuracy before and after every change to chunking or reranking.</p>
-          <div class="proj__meta">
-            <span class="chip chip--wip">In progress</span>
-            <span class="chip">Cited answers</span>
-            <span class="chip">Eval-driven</span>
-          </div>
-        </div>
-        <span class="proj__stack">RAG · pgvector<br>FastAPI · Claude API</span>
-      </article>
+  </main>
 
-      <article class="proj reveal" data-cat="infra backend">
-        <span class="proj__idx">05</span>
-        <div>
-          <h3>Production hardening and secrets</h3>
-          <p><strong>The problem.</strong> Database credentials lived in a file on the server, and services didn't come back cleanly after a restart.</p>
-          <p><strong>What I built.</strong> Credentials moved into AWS Secrets Manager and are injected at startup through an IAM role attached to the instance — nothing sensitive on disk. The API, worker, and scheduler now run as grouped systemd services that start, stop, and restart together.</p>
-          <div class="proj__meta">
-            <span class="chip">No credentials on disk</span>
-            <span class="chip">Least-privilege IAM</span>
-            <span class="chip">Restart-safe services</span>
-          </div>
-        </div>
-        <span class="proj__stack">AWS Secrets Manager<br>IAM · systemd · Poetry</span>
-      </article>
-
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <p>© <span class="year"></span> Salman · Backend &amp; AI engineer</p>
+      <div class="footer__links">
+        <a href="services.html">Services</a><a href="work.html">Work</a><a href="about.html">About</a><a
+          href="contact.html">Contact</a>
+      </div>
     </div>
+  </footer>
 
-    <p id="workEmpty" hidden style="font-family:var(--mono); font-size:.85rem; color:var(--muted); padding:44px 12px;">
-      No projects in that category yet. Try another filter.
-    </p>
-  </div>
-</section>
-
-<section class="band">
-  <div class="wrap">
-    <p class="eyebrow reveal">Your project next</p>
-    <h2 class="reveal">What would you want on this page?</h2>
-    <p class="lede reveal">Tell me the outcome you're after and I'll tell you what it takes to get there.</p>
-    <div class="cta-row reveal"><a href="contact.html" class="btn btn--solid">Start a project →</a></div>
-  </div>
-</section>
-
-</main>
-
-<footer class="footer">
-  <div class="wrap footer__inner">
-    <p>© <span class="year"></span> Miltan · Backend &amp; AI engineer</p>
-    <div class="footer__links">
-      <a href="services.html">Services</a><a href="work.html">Work</a><a href="about.html">About</a><a href="contact.html">Contact</a>
-    </div>
-  </div>
-</footer>
-
-<script src="assets/js/main.js"></script>
+  <script src="assets/js/main.js"></script>
 </body>
+
 </html>
