@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8" /><meta name="viewport" content="width=device-width" /></head>
+<!-- Email clients strip <style> blocks and ignore flexbox/grid, so this is
+     table-based with inline styles. It looks dated because it has to be. -->
+<body style="margin:0; padding:0; background:#08181C; font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#08181C; padding:32px 16px;">
+<tr><td align="center">
+
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px; background:#0E262B; border:1px solid #143238; border-radius:12px;">
+
+    <tr><td style="padding:22px 26px; border-bottom:1px solid #143238;">
+      <span style="font-family:'SFMono-Regular',Consolas,monospace; font-size:12px; color:#F0A03C; letter-spacing:2px; text-transform:uppercase;">New enquiry</span>
+      <div style="font-size:19px; font-weight:700; color:#E8E6DD; margin-top:8px;">{{ kind }}</div>
+    </td></tr>
+
+    <tr><td style="padding:26px;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="font-size:14px;">
+        <tr>
+          <td style="padding:7px 0; color:#7E9499; width:74px;">Name</td>
+          <td style="padding:7px 0; color:#E8E6DD; font-weight:600;">{{ name }}</td>
+        </tr>
+        <tr>
+          <td style="padding:7px 0; color:#7E9499;">Email</td>
+          <td style="padding:7px 0;"><a href="mailto:{{ email }}" style="color:#5FD6C8; text-decoration:none;">{{ email }}</a></td>
+        </tr>
+        <tr>
+          <td style="padding:7px 0; color:#7E9499;">From IP</td>
+          <td style="padding:7px 0; color:#7E9499; font-family:'SFMono-Regular',Consolas,monospace; font-size:12px;">{{ ip }}</td>
+        </tr>
+      </table>
+
+      <div style="height:1px; background:#143238; margin:22px 0;"></div>
+
+      <div style="font-family:'SFMono-Regular',Consolas,monospace; font-size:11px; color:#F0A03C; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:12px;">Message</div>
+      <div style="font-size:15px; line-height:1.65; color:#E8E6DD; white-space:pre-wrap;">{{ message }}</div>
+
+      <div style="margin-top:28px;">
+        <a href="mailto:{{ email }}?subject=Re:%20{{ kind|urlencode }}"
+           style="display:inline-block; background:#F0A03C; color:#0A1114; font-weight:700; font-size:14px; text-decoration:none; padding:13px 26px; border-radius:100px;">
+          Reply to {{ name.split()[0] }} &rarr;
+        </a>
+      </div>
+    </td></tr>
+
+    <tr><td style="padding:16px 26px; border-top:1px solid #143238;">
+      <span style="font-family:'SFMono-Regular',Consolas,monospace; font-size:11px; color:#7E9499;">
+        Sent from the contact form at {{ site_name }} · just hit reply
+      </span>
+    </td></tr>
+
+  </table>
+
+</td></tr>
+</table>
+</body>
+</html>

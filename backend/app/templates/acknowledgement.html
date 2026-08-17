@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8" /><meta name="viewport" content="width=device-width" /></head>
+<body style="margin:0; padding:0; background:#08181C; font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#08181C; padding:32px 16px;">
+<tr><td align="center">
+
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px; background:#0E262B; border:1px solid #143238; border-radius:12px;">
+
+    <tr><td style="padding:34px 30px 6px;">
+      <div style="font-family:'SFMono-Regular',Consolas,monospace; font-size:12px; color:#F0A03C; letter-spacing:2px; text-transform:uppercase;">Message received</div>
+      <div style="font-size:24px; font-weight:700; color:#E8E6DD; margin-top:12px; line-height:1.25;">
+        Thanks, {{ name.split()[0] }}.
+      </div>
+    </td></tr>
+
+    <tr><td style="padding:14px 30px 4px;">
+      <p style="margin:0 0 16px; font-size:15px; line-height:1.7; color:#B9C5C7;">
+        Your message reached me and I'll read it properly rather than skim it.
+        Expect a reply <strong style="color:#E8E6DD;">within one working day</strong> —
+        and if I'm not the right person for the job, I'll tell you that instead of leaving you waiting.
+      </p>
+      <p style="margin:0 0 22px; font-size:15px; line-height:1.7; color:#B9C5C7;">
+        No action needed from you. This is an automatic confirmation, but the reply won't be.
+      </p>
+    </td></tr>
+
+    <tr><td style="padding:0 30px 8px;">
+      <div style="border:1px solid #143238; border-radius:10px; padding:20px;">
+        <div style="font-family:'SFMono-Regular',Consolas,monospace; font-size:11px; color:#F0A03C; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:14px;">
+          A copy of what you sent
+        </div>
+        <div style="font-size:13px; color:#7E9499; margin-bottom:4px;">Topic</div>
+        <div style="font-size:14px; color:#E8E6DD; margin-bottom:16px;">{{ kind }}</div>
+        <div style="font-size:13px; color:#7E9499; margin-bottom:4px;">Message</div>
+        <div style="font-size:14px; line-height:1.65; color:#E8E6DD; white-space:pre-wrap;">{{ message }}</div>
+      </div>
+    </td></tr>
+
+    <tr><td style="padding:26px 30px 34px;">
+      <p style="margin:0; font-size:15px; line-height:1.7; color:#B9C5C7;">
+        — {{ from_name }}<br />
+        <a href="{{ site_url }}" style="color:#5FD6C8; text-decoration:none; font-size:14px;">{{ site_name }}</a>
+      </p>
+    </td></tr>
+
+    <tr><td style="padding:16px 30px; border-top:1px solid #143238;">
+      <span style="font-family:'SFMono-Regular',Consolas,monospace; font-size:11px; color:#7E9499;">
+        You're getting this because you used the contact form at {{ site_name }}.
+        If that wasn't you, ignore this — you're not subscribed to anything.
+      </span>
+    </td></tr>
+
+  </table>
+
+</td></tr>
+</table>
+</body>
+</html>
