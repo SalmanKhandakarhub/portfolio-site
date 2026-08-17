@@ -34,8 +34,7 @@ app = FastAPI(title="Contact API", docs_url=None, redoc_url=None, lifespan=lifes
 
 app.add_middleware(
     CORSMiddleware,
-    # allow_origins=settings.origins,   # explicit list, never "*"
-    allow_origins="*",   # explicit list, never "*"
+    allow_origins=settings.origins,   # explicit list, never "*"
     allow_methods=["POST", "OPTIONS"],
     allow_headers=["Content-Type"],
 )
