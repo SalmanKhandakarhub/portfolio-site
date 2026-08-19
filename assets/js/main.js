@@ -169,8 +169,8 @@ if (filters.length) {
 const send = document.getElementById('send');
 if (send) {
   /* EDIT:API — relative path if same domain, full URL if not */
-  const API_URL = 'https://portfolio-site-zma0.onrender.com/api/contact/';
-
+  const API_URL = "https://portfolio-site-zma0.onrender.com/api/contact";
+  
   const statusEl = document.getElementById('status');
   const fields = ['name', 'email', 'kind', 'msg'].map(id => document.getElementById(id));
   const honeypot = document.getElementById('company');

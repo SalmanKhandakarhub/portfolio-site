@@ -32,11 +32,18 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(title="Contact API", docs_url=None, redoc_url=None, lifespan=lifespan)
 
+# Split the comma-separated string from .env into a list
+if isinstance(settings.ALLOWED_ORIGINS, str):
+    origins = [origin.strip() for origin in settings.ALLOWED_ORIGINS.split(",") if origin.strip()]
+else:
+    origins = settings.ALLOWED_ORIGINS
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.origins,   # explicit list, never "*"
-    allow_methods=["POST", "OPTIONS"],
-    allow_headers=["Content-Type"],
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 
