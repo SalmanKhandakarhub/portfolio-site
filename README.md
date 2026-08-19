@@ -1,4 +1,4 @@
-# Portfolio — Miltan
+# Portfolio — Salman
 
 A five-page portfolio site for a backend and AI engineer. No build step, no framework, no dependencies to install: open `index.html` in a browser and it runs.
 
@@ -95,7 +95,7 @@ Search the files for these markers:
 | `EDIT:WORK` | `work.html` | Your own projects. Keep the metric chips — the numbers do the persuading |
 | `.env` values | `backend/.env` | SMTP credentials and your inbox address |
 | Timeline dates | `about.html` | Your actual roles and dates |
-| `miltan.dev` | all pages | Brand text in the nav, if you want something else |
+| `salman.dev` | all pages | Brand text in the nav, if you want something else |
 
 Also update the `<title>` and `<meta name="description">` on each page — they're what appears in search results.
 

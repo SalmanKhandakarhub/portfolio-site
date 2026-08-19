@@ -105,7 +105,7 @@ Use the absolute path to the venv's `uvicorn`. systemd doesn't inherit your shel
 
 ```nginx
 server {
-    server_name miltan.dev;
+    server_name salman.dev;
     root /opt/project/portfolio;
     index index.html;
 
