@@ -51,10 +51,11 @@ async def _send(
     await aiosmtplib.send(
         msg,
         hostname=settings.SMTP_HOST,
-        port=settings.SMTP_PORT,
+        port=int(settings.SMTP_PORT),
         username=settings.SMTP_USER,
         password=settings.SMTP_PASSWORD,
-        start_tls=settings.SMTP_STARTTLS,
+        use_tls=True, 
+        start_tls=False,
         timeout=20,
     )
 
