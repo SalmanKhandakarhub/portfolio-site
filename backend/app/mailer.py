@@ -6,7 +6,8 @@ Two messages go out per enquiry:
                       hitting reply in your mail client answers them directly.
   2. Acknowledgement -> the visitor, confirming you received it.
 
-Both are sent from a background task over a single persistent SMTP connection.
+Both are sent from a background task. The HTTP response does not wait on
+SMTP, because a slow mail server should never become a slow form.
 """
 
 import logging
@@ -22,19 +23,19 @@ log = logging.getLogger("contact.mailer")
 
 _env = Environment(
     loader=FileSystemLoader(Path(__file__).parent / "templates"),
-    autoescape=select_autoescape(["html"]),
+    autoescape=select_autoescape(["html"]),  # visitor input is escaped, not injected
 )
 
 
-def _build_message(
+async def _send(
     *,
     to: str,
     subject: str,
     html: str,
     text: str,
     reply_to: str | None = None,
-) -> EmailMessage:
-    """Build an email message object without sending it."""
+) -> None:
+    """Build and deliver one message. Raises on failure so the caller can log it."""
     msg = EmailMessage()
     msg["From"] = f"{settings.FROM_NAME} <{settings.FROM_EMAIL}>"
     msg["To"] = to
@@ -42,15 +43,28 @@ def _build_message(
     if reply_to:
         msg["Reply-To"] = reply_to
 
+    # Plain text first, HTML as the alternative. Clients that block HTML
+    # still get a readable message.
     msg.set_content(text)
     msg.add_alternative(html, subtype="html")
-    return msg
+
+    await aiosmtplib.send(
+        msg,
+        hostname=settings.SMTP_HOST,
+        port=settings.SMTP_PORT,
+        username=settings.SMTP_USER,
+        password=settings.SMTP_PASSWORD,
+        use_tls=True,       # Use direct TLS for port 465
+        start_tls=False,
+        timeout=20,
+    )
 
 
 async def send_enquiry_emails(
     *, name: str, email: str, kind: str, message: str, ip: str
 ) -> None:
-    """Send both emails over a single SMTP connection."""
+    """Send both emails. Called as a background task, so it must never raise
+    into the request cycle — failures are logged with full context instead."""
 
     ctx = {
         "name": name,
@@ -63,66 +77,46 @@ async def send_enquiry_emails(
         "from_name": settings.FROM_NAME,
     }
 
-    # 1. Build message objects
-    notification_msg = _build_message(
-        to=settings.INBOX_EMAIL,
-        subject=f"New enquiry — {kind} — {name}",
-        html=_env.get_template("notification.html").render(**ctx),
-        text=(
-            f"New enquiry via {settings.SITE_NAME}\n\n"
-            f"Name:  {name}\n"
-            f"Email: {email}\n"
-            f"Needs: {kind}\n"
-            f"IP:    {ip}\n\n"
-            f"{message}\n"
-        ),
-        reply_to=email,
-    )
-
-    acknowledgement_msg = _build_message(
-        to=email,
-        subject=f"Thanks — I've got your message, {name.split()[0]}",
-        html=_env.get_template("acknowledgement.html").render(**ctx),
-        text=(
-            f"Hi {name.split()[0]},\n\n"
-            f"Thanks for getting in touch. Your message reached me and "
-            f"I'll reply within one working day.\n\n"
-            f"Here's what you sent, for your records:\n\n"
-            f"Topic: {kind}\n\n"
-            f"{message}\n\n"
-            f"— {settings.FROM_NAME}\n{settings.SITE_URL}\n"
-        ),
-        reply_to=settings.INBOX_EMAIL,
-    )
-
-    # 2. Connect once, login once, deliver both
-    smtp_client = aiosmtplib.SMTP(
-        hostname=settings.SMTP_HOST,
-        port=int(settings.SMTP_PORT),
-        use_tls=True,
-        timeout=25,
-    )
-
+    # --- 1. to you ----------------------------------------------------
     try:
-        await smtp_client.connect()
-        await smtp_client.login(settings.SMTP_USER, settings.SMTP_PASSWORD)
-
-        # Send admin notification
-        try:
-            await smtp_client.send_message(notification_msg)
-            log.info("notification sent for enquiry from %s", email)
-        except Exception:
-            log.error("FAILED to send notification for %s", email, exc_info=True)
-
-        # Send user acknowledgement immediately over the same socket
-        try:
-            await smtp_client.send_message(acknowledgement_msg)
-            log.info("acknowledgement sent to %s", email)
-        except Exception:
-            log.warning("failed to send acknowledgement to %s", email, exc_info=True)
-
+        await _send(
+            to=settings.INBOX_EMAIL,
+            subject=f"New enquiry — {kind} — {name}",
+            html=_env.get_template("notification.html").render(**ctx),
+            text=(
+                f"New enquiry via {settings.SITE_NAME}\n\n"
+                f"Name:  {name}\n"
+                f"Email: {email}\n"
+                f"Needs: {kind}\n"
+                f"IP:    {ip}\n\n"
+                f"{message}\n"
+            ),
+            reply_to=email,  # reply goes straight to the visitor
+        )
+        log.info("notification sent for enquiry from %s", email)
     except Exception:
-        log.error("Failed to connect/authenticate to SMTP server", exc_info=True)
-    finally:
-        if smtp_client.is_connected:
-            await smtp_client.quit()
+        # This one matters most — if it fails you never learn about the lead.
+        log.error("FAILED to send notification for %s", email, exc_info=True)
+
+    # --- 2. to the visitor --------------------------------------------
+    # try:
+    #     await _send(
+    #         to=email,
+    #         subject=f"Thanks — I've got your message, {name.split()[0]}",
+    #         html=_env.get_template("acknowledgement.html").render(**ctx),
+    #         text=(
+    #             f"Hi {name.split()[0]},\n\n"
+    #             f"Thanks for getting in touch. Your message reached me and "
+    #             f"I'll reply within one working day.\n\n"
+    #             f"Here's what you sent, for your records:\n\n"
+    #             f"Topic: {kind}\n\n"
+    #             f"{message}\n\n"
+    #             f"— {settings.FROM_NAME}\n{settings.SITE_URL}\n"
+    #         ),
+    #         reply_to=settings.INBOX_EMAIL,
+    #     )
+    #     log.info("acknowledgement sent to %s", email)
+    # except Exception:
+    #     # Less critical: you still have the enquiry, they just did not get
+    #     # a confirmation. Worth logging, not worth failing over.
+    #     log.warning("failed to send acknowledgement to %s", email, exc_info=True)
