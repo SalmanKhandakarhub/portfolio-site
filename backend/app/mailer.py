@@ -54,8 +54,8 @@ async def _send(
         port=settings.SMTP_PORT,
         username=settings.SMTP_USER,
         password=settings.SMTP_PASSWORD,
-        use_tls=True,       # Use direct TLS for port 465
-        start_tls=False,
+        use_tls=False,       # False for port 587
+        start_tls=True,      # True for port 587
         timeout=20,
     )
 
