@@ -27,7 +27,7 @@ class Settings(BaseSettings):
     # --- Site ---------------------------------------------------------
     SITE_NAME: str = "salman.dev"
     SITE_URL: str = "https://salman.dev"
-    ALLOWED_ORIGINS: str = "https://salman.dev,http://localhost:5500"
+    ALLOWED_ORIGINS: str = "https://salman.dev,http://localhost:5500,http://127.0.0.1:8020"
 
     # --- Abuse control ------------------------------------------------
     REDIS_URL: str = "redis://localhost:6379/0"
